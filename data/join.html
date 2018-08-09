@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+	<title>Join webRTC</title>
+	<link rel="stylesheet" href="webrtc.css">
+</head>
+<body>
+<div>
+	<audio width=device-width id=local controls autoplay></audio>
+</div>
+<div>
+	<video width=device-width id=remote controls autoplay></video>
+</div>
+
+
+<div>
+	<p>
+		<button class="button" id=JoinChatSet>远机</button>	
+	</p>	
+</div>
+
+
+<div>
+	
+	<label class="switch">
+  <input type="checkbox" id="ledstatus1" onclick="LEDswitch1()">
+  <span class="slider"></span>
+  </label>
+<label>
+  <label class="switch">
+  <input type="checkbox" id="ledstatus2" onclick="LEDswitch2()">
+  <span class="slider"></span>
+</label>
+</div>
+
+
+<script src="joinwebrtc.js"></script>
+
+</body>
+</html>
