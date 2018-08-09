@@ -1,0 +1,4 @@
+*.css linguist-language=c
+*.html linguist-language=c
+*.js linguist-language=c
+*.ino linguist-language=c
