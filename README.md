@@ -22,13 +22,13 @@ You can check the [Browser compatibility](https://developer.mozilla.org/en-US/do
    
 * Device A
  1. Connect your WiFi network SSID with password
- 2. Open firefox and enter the URL “esp/create.html” or “192.168.2.2/create.html”
+ 2. Open firefox and enter the URL "esp/create.html" or "192.168.2.2/create.html"
  3. Grant the premission for camera and mircophone
  4. Click “create” button
  
 * Device B
  1. Connect your WiFi network SSID with password
- 2. Open firefox and enter the URL “esp/join.html” or “192.168.2.2/join.html”
+ 2. Open firefox and enter the URL "esp/join.html" or "192.168.2.2/join.html"
  3. Grant the premission for mircophone
  4. Click “join” button
 
