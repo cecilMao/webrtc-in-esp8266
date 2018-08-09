@@ -10,18 +10,16 @@
 #include <string.h>
 #include <ArduinoJson.h>
 
-int ledPin1 = 5; // GPIO5
+int ledPin1 = 5; 
 int ledPin2 = 4; 
 const byte DNS_PORT = 53;
 DNSServer dnsServer;
 // Update to contain your network information :)
-const char *ssid = "Ibeenwaitingonyou";
-const char *password = "letitallgo";
+const char *ssid = "SSIDNAME";
+const char *password = "PASSWORD";
 
 // A few variables which we'll need throughout the program
-//int16_t thisRead = 0; // The current pot value
-//int16_t lastRead = 0; // The last pot value (this is used to prevent sending duplicate values)
-//uint8_t counter = 0;  // Used to limit how often we send pot updates via websockets
+
 uint8_t Offer_Answer=255;
 uint8_t CreaterNumber=255;
 uint8_t JointNumber=255;
@@ -67,7 +65,7 @@ void setup(void){
 
   pinMode(ledPin1, OUTPUT);
   digitalWrite(ledPin1, LOW);
- pinMode(ledPin2, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
   digitalWrite(ledPin2, LOW);
   // Begin access to our file system (which stores the HTML)
   SPIFFS.begin();
@@ -112,25 +110,11 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
     case WStype_CONNECTED: {
       IPAddress ip = webSocket.remoteIP(num);
       Serial.printf("--- Connection. IP: %d.%d.%d.%d Namespace: %s UserID: %u\n", ip[0], ip[1], ip[2], ip[3], payload, num);
-      // = num;
-      // Send last pot value on connect
-//      String message = String(lastRead);
-//      webSocket.broadcastTXT(message);
       break;
     }
 
     // Runs when a user sends us a message
     case WStype_TEXT: {
-//      String incoming = "";
-//      for (int i = 0; i < lenght; i++) {
-//        incoming.concat((char)payload[i]);
-//      }
-      
-      // uint8_t deg = incoming.toInt();
-      // analogWrite(ledPin, deg);
-      
-      
- 
       Serial.printf("UserID: %u,Namespace: %s \n",num, payload);
       DynamicJsonBuffer jsonBuffer(100);
       JsonObject& parsed = jsonBuffer.parseObject(payload); //Parse message
@@ -166,8 +150,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
       {Offer_Answer=3;
       }
   
-//      String message = String(payload);
-//      webSocket.broadcastTXT(message);
+
       if(Offer_Answer==0&& answerflag==0){
         CreaterNumber=num;
         parsed.printTo(offerToken);
@@ -230,7 +213,4 @@ if(path.endsWith("join.html")) {answerflag=0;answerToken="";Serial.println("join
   }
   return false;
 }
-
-
-
 
